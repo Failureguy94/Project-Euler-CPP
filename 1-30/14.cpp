@@ -27,19 +27,32 @@ string to_lower(string a) { for (int i=0;i<(int)a.size();++i) if (a[i]>='A' && a
 // Template :https://github.com/Failureguy94/Template-for-Competitive-Programming
 
 void solve() {
-    
+    int maxs=0;
+    int ans;
+    for(int i=1;i<1e6+1;i++){
+        int temp=i;
+        int ct=0;
+        while(temp!=1){
+            if(temp%2==0){
+                temp/=2;
+                ct++;
+            }
+            else{
+                temp=3*temp+1;
+                ct++;
+            }
+        }
+        if(ct>maxs){
+            maxs=ct;
+            ans=i;
+        }
+    }
+    cout <<ans;
 }
 
 int32_t main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-
-    int t;
-    cin >> t;
-
-    while (t--) {
-        solve();
-    }
-
+solve();
     return 0;
 }
